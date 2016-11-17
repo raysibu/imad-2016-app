@@ -13,5 +13,19 @@
         </div>
         <script type="text/javascript" src="/ui/main.js">
         </script>
+        <h2>SEARCH ENGINE</h2>
+	<form action='./search.php' method='get'>
+	<input type='text' name='k' size='50' value='<?php echo $_GET['k']; ?>' />
+	<input type='submit' value='Search'>
+	</form>
+	<hr />
+	<?php
+		$k = $_GET['k'];
+		$term = explode(" ", $k);
+		foreach ($term as $each){
+			echo $each."<br />"; 
+		
+		}
+	?>
     </body>
 </html>
