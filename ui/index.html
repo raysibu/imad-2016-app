@@ -21,18 +21,36 @@
 
 <!doctype html>
 <html>
-  <head><title>search engine</title>
-    <script type="text/javascript" src="jQuery.js"></script>
-    <script type="text/javascript" src="server.js"></script>
-  </head>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script tpye="text/javascript">
+$(document).ready(function()
+{
+    var url = document.location.href;
+    var search_val_raw = url.split("?q=")[1];
+    var search_val_count = search_val_raw.split("+");
+    var search_val;
 
-  <body>
-   <div id="searchContainer">
-     <form id="searchForm">
-      <input id="searchbox" name="q" type="text"/>
-      <button id="searchbutton" type="submit" value="search"></button>
-     </form>
-   </div>
-   <div id="result"></div>
-  </body>
+    for(var i = 0; i < search_val_count.length; i++)
+    {
+        search_val = search_val_count[i];
+
+        $("#search-results p:contains(" + search_val + ")").show();
+    }
+});
+</script>
+<style type="text/css">
+#search-results p
+{
+    display: none;
+}
+</style>
+</head>
+<body>
+<div id="search-results">
+<p><a href="#">Lorem Ipsum</a></p>
+<p><a href="#">Test</a></p>
+<p><a href="#">Brofist</a></p>
+</div>
+</body>
 </html>
